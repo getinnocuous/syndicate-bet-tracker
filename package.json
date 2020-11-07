@@ -68,5 +68,6 @@
     "*.{js,ts,tsx}": [
       "eslint --fix"
     ]
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

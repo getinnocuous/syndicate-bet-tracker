@@ -1,16 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { ThemeProvider, GlobalStyle, theme } from './styles/GlobalStyles';
-import MUFC from './images/manchester_united.png';
-import MCFC from './images/manchester_city.png';
-import FFC from './images/fulham.png';
-import CPFC from './images/crystal_palace.png';
-import MKDNS from './images/milton_keynes_dons.png';
-import QPR from './images/queens_park_rangers.png';
-import SPURS from './images/tottenham_hotspur.png';
-import NUFC from './images/newcastle_united.png';
-
+import { BetStatus, Fixture } from './types';
 interface FixtureStyleProps {
   color: string;
 }
@@ -78,23 +70,6 @@ const Time = styled.span`
   }
 `;
 
-enum BetStatus {
-  Winning,
-  Drawing,
-  Losing,
-}
-
-interface FixtureProps {
-  score: {
-    home: number;
-    away: number;
-  };
-  status: BetStatus;
-  time: number;
-  homeBadge: any;
-  awayBadge: any;
-}
-
 const getColorForStatus = (status: BetStatus): string => {
   switch (status) {
     case BetStatus.Winning:
@@ -108,7 +83,7 @@ const getColorForStatus = (status: BetStatus): string => {
   }
 };
 
-const Fixture = ({ score, status, time, homeBadge, awayBadge }: FixtureProps): JSX.Element => {
+const Fixture_ = ({ score, status, time, homeBadge, awayBadge }: Fixture): JSX.Element => {
   const { home, away } = score;
   return (
     <FixtureContainer color={getColorForStatus(status)}>
@@ -127,50 +102,21 @@ const Fixture = ({ score, status, time, homeBadge, awayBadge }: FixtureProps): J
   );
 };
 
-const scores: FixtureProps[] = [
-  {
-    score: {
-      home: 2,
-      away: 1,
-    },
-    status: BetStatus.Winning,
-    time: 11,
-    homeBadge: MCFC,
-    awayBadge: MUFC,
-  },
-  {
-    score: {
-      home: 0,
-      away: 0,
-    },
-    status: BetStatus.Drawing,
-    time: 12,
-    homeBadge: FFC,
-    awayBadge: CPFC,
-  },
-  {
-    score: {
-      home: 1,
-      away: 0,
-    },
-    status: BetStatus.Winning,
-    time: 12,
-    homeBadge: SPURS,
-    awayBadge: NUFC,
-  },
-  {
-    score: {
-      home: 0,
-      away: 1,
-    },
-    status: BetStatus.Losing,
-    time: 10,
-    homeBadge: MKDNS,
-    awayBadge: QPR,
-  },
-];
-
 function App(): JSX.Element {
+  const [scores, setScores] = useState<Fixture[]>();
+  useEffect(() => {
+    fetch('/api/scores')
+      .then(function (response) {
+        // Examine the text in the response
+        response.json().then(function (data) {
+          setScores(data);
+        });
+      })
+      .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+      });
+  }, []);
+
   return (
     <ThemeProvider>
       <>
@@ -182,51 +128,57 @@ function App(): JSX.Element {
           <h1>In play</h1>
         </header>
         <main>
-          <div>
-            <h2 className={'winning'}>Winning</h2>
-            {scores
-              .filter((score) => score.status === BetStatus.Winning)
-              .map((score, index) => (
-                <Fixture
-                  homeBadge={score.homeBadge}
-                  awayBadge={score.awayBadge}
-                  key={index}
-                  score={score.score}
-                  status={score.status}
-                  time={score.time}
-                />
-              ))}
-          </div>
-          <div>
-            <h2 className={'drawing'}>Drawing</h2>
-            {scores
-              .filter((score) => score.status === BetStatus.Drawing)
-              .map((score, index) => (
-                <Fixture
-                  homeBadge={score.homeBadge}
-                  awayBadge={score.awayBadge}
-                  key={index}
-                  score={score.score}
-                  status={score.status}
-                  time={score.time}
-                />
-              ))}
-          </div>
-          <div>
-            <h2 className={'losing'}>Losing</h2>
-            {scores
-              .filter((score) => score.status === BetStatus.Losing)
-              .map((score, index) => (
-                <Fixture
-                  homeBadge={score.homeBadge}
-                  awayBadge={score.awayBadge}
-                  key={index}
-                  score={score.score}
-                  status={score.status}
-                  time={score.time}
-                />
-              ))}
-          </div>
+          {scores ? (
+            <>
+              {/* <div>
+                <h2 className={'winning'}>Winning</h2>
+                {scores
+                  .filter((score) => score.status === BetStatus.Winning)
+                  .map((score, index) => (
+                    <Fixture
+                      homeBadge={score.homeBadge}
+                      awayBadge={score.awayBadge}
+                      key={index}
+                      score={score.score}
+                      status={score.status}
+                      time={score.time}
+                    />
+                  ))}
+              </div>
+              <div>
+                <h2 className={'drawing'}>Drawing</h2>
+                {scores
+                  .filter((score) => score.status === BetStatus.Drawing)
+                  .map((score, index) => (
+                    <Fixture
+                      homeBadge={score.homeBadge}
+                      awayBadge={score.awayBadge}
+                      key={index}
+                      score={score.score}
+                      status={score.status}
+                      time={score.time}
+                    />
+                  ))}
+              </div>
+              <div>
+                <h2 className={'losing'}>Losing</h2>
+                {scores
+                  .filter((score) => score.status === BetStatus.Losing)
+                  .map((score, index) => (
+                    <Fixture
+                      homeBadge={score.homeBadge}
+                      awayBadge={score.awayBadge}
+                      key={index}
+                      score={score.score}
+                      status={score.status}
+                      time={score.time}
+                    />
+                  ))}
+              </div> */}
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
         </main>
       </>
     </ThemeProvider>
