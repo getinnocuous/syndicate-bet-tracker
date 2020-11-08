@@ -16,7 +16,6 @@ const fetchData = (setScores: React.Dispatch<React.SetStateAction<Scores | undef
     .then((response) => response.json())
     .then((data) => {
       setScores(data);
-      console.log(data);
     })
     .catch(function (err) {
       console.log('Fetch Error :-S', err);
@@ -44,7 +43,6 @@ function App(): JSX.Element {
 
     const interval = setInterval(() => {
       fetchData(setScores);
-      console.log('refreshed data');
     }, timeInterval);
 
     return () => clearInterval(interval);

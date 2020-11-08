@@ -22,8 +22,8 @@ export const theme: DefaultTheme = {
 export const GlobalStyle = createGlobalStyle`
   :root {
     --layout-max-width: 86rem;
-    --h-spacing: 1.5rem;
-    --v-spacing: 1.5rem;
+    --h-spacing: 1.6rem;
+    --v-spacing: 1.6rem;
     --content-max-width: 32rem;
     --body: 'Bungee Inline', sans-serif;
     font-size: 62.5%;
@@ -76,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
   main {
     margin: auto;
     display: grid;
-    grid-row-gap: calc(var(--v-spacing) * 2);
+    grid-row-gap: calc(var(--v-spacing) * 1.5);
     padding-left: 1rem;
     padding-right: 1rem;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -102,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h2 {
     font-size: 2.4rem;
-    margin: 0 0 var(--v-spacing);
+    margin: 0;
     text-align: center;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
       font-size: 3.6rem;

@@ -13,12 +13,11 @@ interface StageProps {
 
 export const Stage = ({ scores }: StageProps): JSX.Element => {
   const gamesInPlay = scores.inPlayOrPending.some((score) => score.betStatus !== BetStatus.Pending);
-  console.log({ gamesInPlay });
   return (
     <main>
       {gamesInPlay ? (
         <>
-          <h2 className="h1">In Play</h2>
+          <h2 className="h1">In-Play</h2>
           <Column>
             <>
               <h2 className={'winning'}>Winning</h2>
