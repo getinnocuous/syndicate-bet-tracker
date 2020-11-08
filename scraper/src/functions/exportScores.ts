@@ -3,5 +3,5 @@ import { Fixture } from '../../../src/types/Fixture';
 
 export const exportScores = async (results: Fixture[]): Promise<void> => {
   const jsonString = JSON.stringify(results);
-  fs.writeFileSync('./data/scores.json', jsonString, 'utf-8');
+  fs.writeFileSync('scores.json', jsonString, 'utf-8');
 };

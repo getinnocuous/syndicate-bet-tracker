@@ -1,6 +1,6 @@
 export const scores = (app, fs) => {
   // variables
-  const dataPath = './data/scores.json';
+  const dataPath = 'scores.json';
 
   // READ
   app.get('/api/scores', (req, res) => {
