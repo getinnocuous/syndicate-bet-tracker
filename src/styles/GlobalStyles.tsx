@@ -84,19 +84,20 @@ export const GlobalStyle = createGlobalStyle`
       grid-template-columns: 1fr 1fr;
       padding-left: 0;
       padding-right: 0;
+      .h1 {
+        grid-column: 1 / span 2;
+      }
     }
   }
 
-  h1 {
+  h1, .h1 {
     font-size: 3.6rem;
-    margin: 0 0 calc(var(--v-spacing) * 2);
+    margin: 0 auto 0;
     text-align: center;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
       font-size: 4.8rem;
     }
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-      margin: 0 0 calc(var(--v-spacing) * 3);
-    }
+
   }
 
   h2 {

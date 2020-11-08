@@ -51,7 +51,15 @@ export const scrapeScores = async (): Promise<void> => {
       };
     });
 
-    exportScores(scores);
+    const finishedGames = scores.filter((score) => score.currentTime === 'Finished');
+    const inPlayOrPending = scores.filter((score) => score.currentTime !== 'Finished');
+
+    const allBets = {
+      finishedGames,
+      inPlayOrPending,
+    };
+
+    exportScores(allBets);
   } catch (e) {
     console.log(e);
   } finally {

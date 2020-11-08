@@ -2,30 +2,55 @@ import React from 'react';
 import { BetStatus } from '../../types/BetStatus';
 import { Fixture } from '../../types/Fixture';
 import { FixtureList } from '../FixtureList/FixtureList';
-import { Centered, Grid } from '../Layout/Layout';
+import { Centered, Grid, Column } from '../Layout/Layout';
 
 interface StageProps {
-  scores: Fixture[];
+  scores: {
+    finishedGames: Fixture[];
+    inPlayOrPending: Fixture[];
+  };
 }
 
 export const Stage = ({ scores }: StageProps): JSX.Element => (
   <main>
-    <div style={{ display: 'grid', gridRowGap: 'var(--v-spacing)' }}>
-      <h2 className={'winning'}>Winning</h2>
-      <FixtureList scores={scores.filter((score) => score.betStatus === BetStatus.Winning)} />
-    </div>
-    <div style={{ display: 'grid', gridRowGap: 'var(--v-spacing)' }}>
-      <h2 className={'losing'}>Losing</h2>
-      <FixtureList
-        scores={scores.filter(
-          (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
-        )}
-      />
-    </div>
+    <h2 className="h1">In Play</h2>
+    <Column>
+      <>
+        <h2 className={'winning'}>Winning</h2>
+        <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Winning)} />
+      </>
+    </Column>
+    <Column>
+      <>
+        <h2 className={'losing'}>Losing</h2>
+        <FixtureList
+          scores={scores.inPlayOrPending.filter(
+            (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+          )}
+        />
+      </>
+    </Column>
+    <h2 className="h1">Settled</h2>
+    <Column>
+      <>
+        <h2 className={'winning'}>Won</h2>
+        <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
+      </>
+    </Column>
+    <Column>
+      <>
+        <h2 className={'losing'}>Lost</h2>
+        <FixtureList
+          scores={scores.finishedGames.filter(
+            (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+          )}
+        />
+      </>
+    </Column>
     <Centered>
       <h2 className={'drawing'}>Pending</h2>
       <Grid>
-        <FixtureList scores={scores.filter((score) => score.betStatus === BetStatus.Pending)} />
+        <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Pending)} />
       </Grid>
     </Centered>
   </main>

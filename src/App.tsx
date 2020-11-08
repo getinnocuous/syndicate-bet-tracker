@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Container, ThemeProvider, GlobalStyle } from './styles/GlobalStyles';
 import { Fixture } from './types/Fixture';
-import { Header } from './components/Header/Header';
 import { Stage } from './components/Stage/Stage';
 import { Loading } from './components/Loading/Loading';
 
@@ -10,7 +9,7 @@ const env = process.env['NODE_ENV'];
 const isDev = env !== 'production';
 const endpoint = isDev ? '/api/scores' : 'https://syndicate-bet-tracker.xyz/api/scores';
 
-const fetchData = (setScores: React.Dispatch<React.SetStateAction<Fixture[] | undefined>>) => {
+const fetchData = (setScores: React.Dispatch<React.SetStateAction<Scores | undefined>>) => {
   fetch(endpoint, {
     mode: 'cors',
   })
@@ -24,6 +23,11 @@ const fetchData = (setScores: React.Dispatch<React.SetStateAction<Fixture[] | un
     });
 };
 
+interface Scores {
+  finishedGames: Fixture[];
+  inPlayOrPending: Fixture[];
+}
+
 const og = {
   title: 'Syndicate Bet Tracker',
   description: 'Track all the bets in one place',
@@ -32,7 +36,7 @@ const og = {
 };
 
 function App(): JSX.Element {
-  const [scores, setScores] = useState<Fixture[]>();
+  const [scores, setScores] = useState<Scores>();
   const timeInterval = 15000; // 15 seconds
 
   useEffect(() => {
@@ -65,7 +69,6 @@ function App(): JSX.Element {
           <link rel="manifest" href="/site.webmanifest"></link>
         </Helmet>
         <GlobalStyle />
-        <Header />
         {scores ? <Stage scores={scores} /> : <Loading />}
       </Container>
     </ThemeProvider>

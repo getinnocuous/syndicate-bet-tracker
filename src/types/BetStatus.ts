@@ -3,4 +3,6 @@ export enum BetStatus {
   Drawing,
   Losing,
   Pending,
+  Won,
+  Lost,
 }

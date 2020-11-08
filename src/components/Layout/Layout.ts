@@ -16,3 +16,8 @@ export const Centered = styled.div`
     grid-column: 1 / span 2;
   }
 `;
+
+export const Column = styled.div`
+  display: grid;
+  grid-row-gap: var(--v-spacing);
+`;
