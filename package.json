@@ -69,5 +69,5 @@
       "eslint --fix"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://209.97.182.68:3001/"
 }

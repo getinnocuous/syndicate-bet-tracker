@@ -7,7 +7,7 @@ import { Stage } from './components/Stage/Stage';
 import { Loading } from './components/Loading/Loading';
 
 const fetchData = (setScores: React.Dispatch<React.SetStateAction<Fixture[] | undefined>>) => {
-  fetch('/api/scores')
+  fetch('api/scores')
     .then((response) => response.json())
     .then((data) => {
       setScores(data);
