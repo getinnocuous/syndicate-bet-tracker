@@ -5,7 +5,8 @@ export const theme: DefaultTheme = {
   breakpoints: {
     xs: '374px',
     md: '660px',
-    lg: '1024px',
+    lg: '768px',
+    xl: '960px',
   },
   color: {
     winning: '#4CD137',
@@ -20,15 +21,20 @@ export const theme: DefaultTheme = {
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --layout-max-width: 140rem;
+    --layout-max-width: 86rem;
     --h-spacing: 1.5rem;
     --v-spacing: 1.5rem;
-    --content-max-width: 34rem;
+    --content-max-width: 32rem;
     --body: 'Bungee Inline', sans-serif;
     font-size: 62.5%;
+    @media screen and (max-width: ${({ theme }) => theme.breakpoints.xs})  {
+      --h-spacing: 1rem;
+      --v-spacing: 1rem;
+    }
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.md})  {
       --h-spacing: 3rem;
       --v-spacing: 3rem;
+      --content-max-width: 38rem;
     }
   }
 
@@ -65,18 +71,19 @@ export const GlobalStyle = createGlobalStyle`
 
   header {
     margin: auto;
-    max-width: var(--layout-max-width);
   }
 
   main {
     margin: auto;
     display: grid;
-    max-width: var(--layout-max-width);
     grid-row-gap: var(--v-spacing);
-
+    padding-left: 1rem;
+    padding-right: 1rem;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
       grid-column-gap: var(--h-spacing);
-      grid-template-columns: auto auto auto
+      grid-template-columns: auto auto
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -110,6 +117,10 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .loading {
+    font-size: 1.6rem;
+    text-align: center;
+  }
 `;
 
 export const Container = styled.div`

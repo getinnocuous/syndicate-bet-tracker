@@ -8,6 +8,7 @@ declare module 'styled-components' {
       xs: string;
       md: string;
       lg: string;
+      xl: string;
     };
     color: {
       winning: string;

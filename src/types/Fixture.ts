@@ -1,12 +1,18 @@
+import { BetPick } from './BetPick';
 import { BetStatus } from './BetStatus';
 
 export interface Fixture {
-  score: {
-    home: number;
-    away: number;
+  id?: string;
+  home: {
+    name: string;
+    homeGoals: number;
   };
-  status: BetStatus;
-  time: number;
-  homeBadge: any;
-  awayBadge: any;
+  away: {
+    name: string;
+    awayGoals: number;
+  };
+  kickOff: string;
+  currentTime: string;
+  pick?: BetPick;
+  betStatus?: BetStatus;
 }

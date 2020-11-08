@@ -1,42 +1,104 @@
 import puppeteer from 'puppeteer';
 import { exportScores } from './exportScores';
+import { BetPick } from '../src/types/BetPick';
+import { BetStatus } from '../src/types/BetStatus';
+import { Fixture } from './../src/types/Fixture';
+
 const siteUrl = 'https://www.flashscore.co.uk/';
 
-export const scrapeScores = async () => {
-  const WEEKLY_PICKS = [
-    {
-      id: 'g_1_MPPzIyNq',
-      pick: 'draw',
-    },
-    // {
-    //   id: 'g_1_E7Yu2xEf',
-    //   pick: 'home',
-    // },
-    // {
-    //   id: 'g_1_063hqXmr',
-    //   pick: 'home',
-    // },
-    // {
-    //   id: 'g_1_nXY8MHES',
-    //   pick: 'home',
-    // },
-    // {
-    //   id: 'g_1_KS3EGyTm',
-    //   pick: 'home',
-    // },
-    // {
-    //   id: 'g_1_Sh7MEFc0',
-    //   pick: 'home',
-    // },
-    // {
-    //   id: 'g_1_2BaZBDsJ',
-    //   pick: 'home',
-    // },
-    // {
-    //   id: 'g_1_tMMLlgQK',
-    //   pick: 'home',
-    // },
-  ];
+interface Bet {
+  id: string;
+  pick: BetPick;
+}
+
+const WEEKLY_PICKS: Bet[] = [
+  {
+    id: 'g_1_Ao6VwJq3',
+    pick: BetPick.AwayWin,
+  },
+  {
+    id: 'g_1_4lFuHexj',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_ruEqGFid',
+    pick: BetPick.Draw,
+  },
+  {
+    id: 'g_1_drtdPJU9',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_K6jPURmb',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_EmCtKAZu',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_KKVcqR2i',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_nw4gH8Jb',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_2TEzOJzE',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_ph0ECpYT',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_YV7IFerf',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_fPrxSPXG',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_bBU1roIc',
+    pick: BetPick.HomeWin,
+  },
+  {
+    id: 'g_1_n1nt84to',
+    pick: BetPick.HomeWin,
+  },
+];
+
+const checkBetStatus = (betPick: BetPick, homeGoals: number, awayGoals: number): BetStatus => {
+  if (homeGoals === null && awayGoals === null) {
+    return BetStatus.Pending;
+  }
+  switch (betPick) {
+    case BetPick.HomeWin:
+      if (homeGoals > awayGoals) {
+        return BetStatus.Winning;
+      } else {
+        return BetStatus.Losing;
+      }
+    case BetPick.Draw:
+      if (homeGoals === awayGoals) {
+        return BetStatus.Winning;
+      } else {
+        return BetStatus.Losing;
+      }
+    case BetPick.AwayWin:
+      if (homeGoals < awayGoals) {
+        return BetStatus.Winning;
+      } else {
+        return BetStatus.Losing;
+      }
+    default:
+      return BetStatus.Pending;
+  }
+};
+
+export const scrapeScores = async (): Promise<void> => {
   let browser;
 
   try {
@@ -47,54 +109,41 @@ export const scrapeScores = async () => {
       timeout: 15000,
     });
 
-    const body = await page.evaluate((ids) => {
-      const checkBetStatus = (betPick, homeGoals, awayGoals) => {
-        if (homeGoals === awayGoals && betPick === 'draw') {
-          return 'winning';
-        }
-        if (homeGoals === awayGoals && betPick !== 'draw') {
-          return 'drawing';
-        }
-        if (homeGoals > awayGoals && betPick === 'home') {
-          return 'winning';
-        }
-        if (homeGoals < awayGoals && betPick === 'away') {
-          return 'winning';
-        }
-        if (homeGoals > awayGoals && betPick !== 'home') {
-          return 'losing';
-        }
-        if (homeGoals < awayGoals && betPick !== 'home') {
-          return 'losing';
-        }
-      };
-
-      return ids.map(({ id, pick }) => {
+    const scrapedPage = await page.evaluate((ids) => {
+      return ids.map(({ id, pick }: Bet) => {
         const home = $(`#${id} .event__participant--home`).text();
         const away = $(`#${id} .event__participant--away`).text();
         const kickOff = $(`#${id} .event__time`).text() || null;
-        const currentTime = parseInt($(`#${id} .event__stage .event__stage--block`).text()) || null;
+        const currentTime = $(`#${id} .event__stage .event__stage--block`).text() || null;
         const homeGoals = parseInt($(`#${id} .event__scores span:nth-of-type(1)`).text());
         const awayGoals = parseInt($(`#${id} .event__scores span:nth-of-type(2)`).text());
-        const betPick = pick;
-        const betStatus = checkBetStatus(betPick, homeGoals, awayGoals);
-        return {
+        const fixture: Fixture = {
+          id,
           home: {
-            home,
+            name: home,
             homeGoals,
           },
           away: {
-            away,
+            name: away,
             awayGoals,
           },
           kickOff,
           currentTime,
-          pick: betPick,
-          betStatus,
+          pick,
         };
+
+        return fixture;
       });
     }, WEEKLY_PICKS);
-    exportScores(body);
+
+    const scores = scrapedPage.map((fixture) => {
+      return {
+        ...fixture,
+        betStatus: checkBetStatus(fixture.pick, fixture.home.homeGoals, fixture.away.awayGoals),
+      };
+    });
+
+    exportScores(scores);
   } catch (e) {
     console.log(e);
   } finally {

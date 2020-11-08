@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { ThemeProvider, GlobalStyle, theme } from './styles/GlobalStyles';
-import { BetStatus, Fixture } from './types';
+import { Container, ThemeProvider, GlobalStyle, theme } from './styles/GlobalStyles';
+import { BetStatus } from './types/BetStatus';
+import { Fixture } from './types/Fixture';
+import { getTeamBadge } from './util/util';
+import BounceLoader from 'react-spinners/ClipLoader';
+
 interface FixtureStyleProps {
   color: string;
 }
@@ -10,24 +14,44 @@ interface FixtureStyleProps {
 const FixtureContainer = styled.article<FixtureStyleProps>`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem;
   background: ${({ theme }) => theme.color.fixture};
   border-radius: 1rem;
   max-width: var(--content-max-width);
-  margin: 0 auto var(--v-spacing);
+  margin: 0;
   border: solid 0.1rem ${({ color }) => color};
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 1.5rem;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
     padding: 2.5rem;
   }
-  &:last-of-type {
-    margin-bottom: 0;
+`;
+
+const Badge = styled.div`
+  display: flex;
+  width: 5.2rem;
+  height: 5.2rem;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 6rem;
+    height: 6rem;
   }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+
   img {
-    width: auto;
-    height: 5.2rem;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
-      height: 6.8rem;
-    }
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  span {
+    display: block;
+    margin: auto;
+    font-size: 1.1rem;
   }
 `;
 
@@ -46,7 +70,7 @@ const Score = styled.span<ScoreStyleProps>`
   font-size: 3.6rem;
   text-align: center;
   color: ${({ color }) => color};
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}) {
     font-size: 4.8rem;
   }
 `;
@@ -70,37 +94,50 @@ const Time = styled.span`
   }
 `;
 
-const getColorForStatus = (status: BetStatus): string => {
+const getColorForStatus = (status: BetStatus | undefined): string => {
   switch (status) {
     case BetStatus.Winning:
       return theme.color.winning;
-    case BetStatus.Drawing:
-      return theme.color.drawing;
     case BetStatus.Losing:
       return theme.color.losing;
+    case BetStatus.Drawing:
+    case BetStatus.Pending:
     default:
-      return theme.color.fixture;
+      return theme.color.drawing;
   }
 };
 
-const Fixture_ = ({ score, status, time, homeBadge, awayBadge }: Fixture): JSX.Element => {
-  const { home, away } = score;
+const FixtureBox = ({ id, home, away, kickOff, currentTime, betStatus }: Fixture): JSX.Element => {
+  const homeBadge = getTeamBadge(home.name);
+  const awayBadge = getTeamBadge(away.name);
+  const scoreLine = home?.homeGoals - away?.awayGoals;
   return (
-    <FixtureContainer color={getColorForStatus(status)}>
-      <img src={homeBadge} />
+    <FixtureContainer id={id} color={getColorForStatus(betStatus)}>
+      <Badge>{homeBadge ? <img src={homeBadge} /> : <span>{home.name}</span>}</Badge>
       <ScoreContainer>
-        <Score color={getColorForStatus(status)}>
-          {home} - {away}
-        </Score>
+        <Score color={getColorForStatus(betStatus)}>{currentTime !== null ? scoreLine : kickOff}</Score>
         <Time>
-          {time}
-          <span>&apos;</span>
+          {currentTime}
+          {currentTime === 'Finished' || currentTime === 'After Pen.' || currentTime === null ? null : (
+            <span>&apos;</span>
+          )}
         </Time>
       </ScoreContainer>
-      <img src={awayBadge} />
+      <Badge>{awayBadge ? <img src={awayBadge} /> : <span>{away.name}</span>}</Badge>
     </FixtureContainer>
   );
 };
+
+const Grid = styled.div`
+  display: grid;
+  grid-gap: var(--v-spacing) var(--h-spacing);
+  margin: auto;
+  max-width: var(--content-max-width);
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    grid-template-columns: 1fr 1fr;
+    max-width: calc((var(--content-max-width) * 2) + var(--h-spacing));
+  }
+`;
 
 function App(): JSX.Element {
   const [scores, setScores] = useState<Fixture[]>();
@@ -110,6 +147,7 @@ function App(): JSX.Element {
         // Examine the text in the response
         response.json().then(function (data) {
           setScores(data);
+          console.log(data);
         });
       })
       .catch(function (err) {
@@ -119,7 +157,7 @@ function App(): JSX.Element {
 
   return (
     <ThemeProvider>
-      <>
+      <Container>
         <Helmet>
           <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
         </Helmet>
@@ -130,57 +168,66 @@ function App(): JSX.Element {
         <main>
           {scores ? (
             <>
-              {/* <div>
+              <div>
                 <h2 className={'winning'}>Winning</h2>
                 {scores
-                  .filter((score) => score.status === BetStatus.Winning)
-                  .map((score, index) => (
-                    <Fixture
-                      homeBadge={score.homeBadge}
-                      awayBadge={score.awayBadge}
-                      key={index}
-                      score={score.score}
-                      status={score.status}
-                      time={score.time}
-                    />
-                  ))}
-              </div>
-              <div>
-                <h2 className={'drawing'}>Drawing</h2>
-                {scores
-                  .filter((score) => score.status === BetStatus.Drawing)
-                  .map((score, index) => (
-                    <Fixture
-                      homeBadge={score.homeBadge}
-                      awayBadge={score.awayBadge}
-                      key={index}
-                      score={score.score}
-                      status={score.status}
-                      time={score.time}
+                  .filter((score) => score.betStatus === BetStatus.Winning)
+                  .map((score) => (
+                    <FixtureBox
+                      key={score.id}
+                      id={score.id}
+                      home={score.home}
+                      away={score.away}
+                      kickOff={score.kickOff}
+                      currentTime={score.currentTime}
+                      betStatus={score.betStatus}
                     />
                   ))}
               </div>
               <div>
                 <h2 className={'losing'}>Losing</h2>
                 {scores
-                  .filter((score) => score.status === BetStatus.Losing)
-                  .map((score, index) => (
-                    <Fixture
-                      homeBadge={score.homeBadge}
-                      awayBadge={score.awayBadge}
-                      key={index}
-                      score={score.score}
-                      status={score.status}
-                      time={score.time}
+                  .filter((score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending)
+                  .map((score) => (
+                    <FixtureBox
+                      key={score.id}
+                      id={score.id}
+                      home={score.home}
+                      away={score.away}
+                      kickOff={score.kickOff}
+                      currentTime={score.currentTime}
+                      betStatus={score.betStatus}
                     />
                   ))}
-              </div> */}
+              </div>
+              <div
+                style={{
+                  gridColumn: '1 / span 2',
+                }}
+              >
+                <h2 className={'drawing'}>Pending</h2>
+                <Grid>
+                  {scores
+                    .filter((score) => score.betStatus === BetStatus.Pending)
+                    .map((score) => (
+                      <FixtureBox
+                        key={score.id}
+                        id={score.id}
+                        home={score.home}
+                        away={score.away}
+                        kickOff={score.kickOff}
+                        currentTime={score.currentTime}
+                        betStatus={score.betStatus}
+                      />
+                    ))}
+                </Grid>
+              </div>
             </>
           ) : (
-            <p>Loading...</p>
+            <p className="loading">Loading...</p>
           )}
         </main>
-      </>
+      </Container>
     </ThemeProvider>
   );
 }
