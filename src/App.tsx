@@ -5,7 +5,6 @@ import { Container, ThemeProvider, GlobalStyle, theme } from './styles/GlobalSty
 import { BetStatus } from './types/BetStatus';
 import { Fixture } from './types/Fixture';
 import { getTeamBadge } from './util/util';
-import BounceLoader from 'react-spinners/ClipLoader';
 
 interface FixtureStyleProps {
   color: string;

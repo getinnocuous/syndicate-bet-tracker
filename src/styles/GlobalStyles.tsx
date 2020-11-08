@@ -81,7 +81,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-right: 1rem;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
       grid-column-gap: var(--h-spacing);
-      grid-template-columns: auto auto
+      grid-template-columns: auto auto;
       padding-left: 0;
       padding-right: 0;
     }
