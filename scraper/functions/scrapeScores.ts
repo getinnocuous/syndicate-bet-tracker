@@ -10,7 +10,7 @@ export const scrapeScores = async (): Promise<void> => {
   let browser;
 
   try {
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.goto(siteUrl); // Add the URL you want to fetch
     await page.waitForSelector(`#${WEEKLY_PICKS[0].id}`, {
