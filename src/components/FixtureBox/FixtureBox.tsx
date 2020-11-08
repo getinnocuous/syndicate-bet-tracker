@@ -14,8 +14,9 @@ const FixtureContainer = styled.article<FixtureStyleProps>`
   padding: 1rem;
   background: ${({ theme }) => theme.color.fixture};
   border-radius: 1rem;
+  width: 100%;
+  margin: 0 auto;
   max-width: var(--content-max-width);
-  margin: 0;
   border: solid 0.1rem ${({ color }) => color};
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 1.5rem;
@@ -93,7 +94,7 @@ const Time = styled.span`
 export const FixtureBox = ({ id, home, away, kickOff, currentTime, betStatus }: Fixture): JSX.Element => {
   const homeBadge = getTeamBadge(home.name);
   const awayBadge = getTeamBadge(away.name);
-  const scoreLine = home?.homeGoals - away?.awayGoals;
+  const scoreLine = `${home?.homeGoals} - ${away?.awayGoals}`;
   return (
     <FixtureContainer id={id} color={getColorForStatus(betStatus)}>
       <Badge>{homeBadge ? <img src={homeBadge} /> : <span>{home.name}</span>}</Badge>

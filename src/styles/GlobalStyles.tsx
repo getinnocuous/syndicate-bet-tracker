@@ -76,12 +76,12 @@ export const GlobalStyle = createGlobalStyle`
   main {
     margin: auto;
     display: grid;
-    grid-row-gap: var(--v-spacing);
+    grid-row-gap: calc(var(--v-spacing) * 2);
     padding-left: 1rem;
     padding-right: 1rem;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
       grid-column-gap: var(--h-spacing);
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
       padding-left: 0;
       padding-right: 0;
     }
@@ -101,7 +101,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h2 {
     font-size: 2.4rem;
-    margin: 0 0 calc(var(--v-spacing) * 2);
+    margin: 0 0 var(--v-spacing);
     text-align: center;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
       font-size: 3.6rem;
@@ -124,7 +124,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  max-width: var(--layout-max-width);
+  max-width: calc((var(--content-max-width) * 2) + var(--h-spacing));
   margin: 0 auto;
 `;
 
