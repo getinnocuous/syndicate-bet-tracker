@@ -18,6 +18,7 @@ const FixtureContainer = styled.article<FixtureStyleProps>`
   margin: 0 auto;
   max-width: var(--content-max-width);
   border: solid 0.1rem ${({ color }) => color};
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 1.5rem;
   }
@@ -102,7 +103,10 @@ export const FixtureBox = ({ id, home, away, kickOff, currentTime, betStatus }: 
         <Score color={getColorForStatus(betStatus)}>{currentTime !== null ? scoreLine : kickOff}</Score>
         <Time>
           {currentTime !== null && currentTime.trim()}
-          {currentTime === 'Finished' || currentTime === 'After Pen.' || currentTime === null ? null : (
+          {currentTime === 'Finished' ||
+          currentTime === 'After Pen.' ||
+          currentTime === 'Half Time' ||
+          currentTime === null ? null : (
             <span>&apos;</span>
           )}
         </Time>
