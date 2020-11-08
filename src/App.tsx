@@ -7,7 +7,9 @@ import { Stage } from './components/Stage/Stage';
 import { Loading } from './components/Loading/Loading';
 
 const fetchData = (setScores: React.Dispatch<React.SetStateAction<Fixture[] | undefined>>) => {
-  fetch('api/scores')
+  fetch('http://209.97.182.68:3001/api/scores', {
+    mode: 'cors',
+  })
     .then((response) => response.json())
     .then((data) => {
       setScores(data);

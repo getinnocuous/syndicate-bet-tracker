@@ -2,11 +2,13 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cron from 'node-cron';
 import fs from 'fs';
+import { cors } from 'cors';
 import { prettyTime } from './utils/prettyTime';
 import { scrapeScores } from './functions/scrapeScores';
 import { appRouter } from './routes/routes';
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
