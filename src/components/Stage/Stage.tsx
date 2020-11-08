@@ -10,11 +10,11 @@ interface StageProps {
 
 export const Stage = ({ scores }: StageProps): JSX.Element => (
   <main>
-    <div>
+    <div style={{ display: 'grid', gridRowGap: 'var(--v-spacing)' }}>
       <h2 className={'winning'}>Winning</h2>
       <FixtureList scores={scores.filter((score) => score.betStatus === BetStatus.Winning)} />
     </div>
-    <div>
+    <div style={{ display: 'grid', gridRowGap: 'var(--v-spacing)' }}>
       <h2 className={'losing'}>Losing</h2>
       <FixtureList
         scores={scores.filter(
