@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 import { exportScores } from './exportScores';
-import { Fixture } from '../../../src/types/Fixture';
+import { Fixture } from '../../../frontend/src/types/Fixture';
 import { Bet, WEEKLY_PICKS } from '../weeklyPicks';
 import { checkBetStatus } from '../utils/checkBetStatus';
 
