@@ -93,10 +93,18 @@ const Time = styled.span`
 `;
 
 const Player = styled.span`
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin-top: 0.2rem;
   text-align: center;
-  margin-top: 1.2rem;
-  margin-bottom: -1.2rem;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-top: 0.4rem;
+    margin-bottom: -0.4rem;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: -1.2rem;
+  }
 `;
 
 export const FixtureBox = ({
