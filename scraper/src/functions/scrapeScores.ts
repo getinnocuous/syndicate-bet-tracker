@@ -18,9 +18,12 @@ export const scrapeScores = async (): Promise<void> => {
     });
 
     const scrapedPage = await page.evaluate((ids) => {
-      return ids.map(({ id, pick }: Bet) => {
-        const home = $(`#${id} .event__participant--home`).text();
-        const away = $(`#${id} .event__participant--away`).text();
+      return ids.map(({ id, pick, playerName }: Bet) => {
+        const $homeElement = $(`#${id} .event__participant--home`);
+        const $awayElement = $(`#${id} .event__participant--away`);
+
+        const home = $homeElement.contents().not($homeElement.children()).text();
+        const away = $awayElement.contents().not($awayElement.children()).text();
         const kickOff = $(`#${id} .event__time`).text() || null;
         const currentTime = $(`#${id} .event__stage .event__stage--block`).text() || null;
         const homeGoals = parseInt($(`#${id} .event__scores span:nth-of-type(1)`).text());
@@ -38,6 +41,7 @@ export const scrapeScores = async (): Promise<void> => {
           kickOff,
           currentTime,
           pick,
+          playerName,
         };
 
         return fixture;

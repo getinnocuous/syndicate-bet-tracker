@@ -1,0 +1,15 @@
+export enum Players {
+  Macca = 'Macca',
+  Elliot = 'Elliot',
+  Dean = 'Dean',
+  Kong = 'Kong',
+  Tom = 'Tom',
+  Terry = 'Terry',
+  Jamie = 'Jamie',
+  Ben = 'Ben',
+  Dave = 'Dave',
+  Kie = 'Kie',
+  Bowers = 'Bowers',
+  Joe = 'Joe',
+  Martin = 'Martin',
+}

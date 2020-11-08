@@ -1,5 +1,5 @@
 export enum BetPick {
-  HomeWin,
-  Draw,
-  AwayWin,
+  HomeWin = 'Home Win',
+  Draw = 'Draw',
+  AwayWin = 'Away Win',
 }

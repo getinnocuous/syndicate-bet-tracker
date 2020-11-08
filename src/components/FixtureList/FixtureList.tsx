@@ -18,6 +18,8 @@ export const FixtureList = ({ scores }: FixtureListProps): JSX.Element => {
           kickOff={score.kickOff}
           currentTime={score.currentTime}
           betStatus={score.betStatus}
+          playerName={score.playerName}
+          pick={score.pick}
         />
       ))}
     </>

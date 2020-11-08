@@ -15,7 +15,7 @@ export const theme: DefaultTheme = {
     body: '#212121',
     fixture: '#333333',
     time: '#0097E6',
-    text: '#ffffff',
+    text: '#f0f0f0',
   },
 };
 

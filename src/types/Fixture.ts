@@ -1,5 +1,6 @@
 import { BetPick } from './BetPick';
 import { BetStatus } from './BetStatus';
+import { Players } from './Players';
 
 export interface Fixture {
   id?: string;
@@ -15,4 +16,5 @@ export interface Fixture {
   currentTime: string;
   pick?: BetPick;
   betStatus?: BetStatus;
+  playerName: Players;
 }

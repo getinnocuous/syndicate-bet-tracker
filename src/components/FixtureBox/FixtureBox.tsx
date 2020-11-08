@@ -80,7 +80,7 @@ const Time = styled.span`
   text-align: center;
   color: ${({ theme }) => theme.color.time};
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
   span {
     animation: blinker 2s linear infinite;
@@ -92,17 +92,34 @@ const Time = styled.span`
   }
 `;
 
-export const FixtureBox = ({ id, home, away, kickOff, currentTime, betStatus }: Fixture): JSX.Element => {
+const Player = styled.span`
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1.2rem;
+  margin-bottom: -1.2rem;
+`;
+
+export const FixtureBox = ({
+  id,
+  home,
+  away,
+  kickOff,
+  currentTime,
+  pick,
+  betStatus,
+  playerName,
+}: Fixture): JSX.Element => {
   const homeBadge = getTeamBadge(home.name);
   const awayBadge = getTeamBadge(away.name);
   const scoreLine = `${home?.homeGoals} - ${away?.awayGoals}`;
+  console.log({ pick });
   return (
     <FixtureContainer id={id} color={getColorForStatus(betStatus)}>
       <Badge>{homeBadge ? <img src={homeBadge} /> : <span>{home.name}</span>}</Badge>
       <ScoreContainer>
         <Score color={getColorForStatus(betStatus)}>{currentTime !== null ? scoreLine : kickOff}</Score>
         <Time>
-          {currentTime !== null && currentTime.trim()}
+          {currentTime !== null && currentTime !== 'Finished' ? currentTime.trim() : null}
           {currentTime === 'Finished' ||
           currentTime === 'After Pen.' ||
           currentTime === 'Half Time' ||
@@ -110,6 +127,9 @@ export const FixtureBox = ({ id, home, away, kickOff, currentTime, betStatus }: 
             <span>&apos;</span>
           )}
         </Time>
+        <Player>
+          {playerName} - {pick}
+        </Player>
       </ScoreContainer>
       <Badge>{awayBadge ? <img src={awayBadge} /> : <span>{away.name}</span>}</Badge>
     </FixtureContainer>
