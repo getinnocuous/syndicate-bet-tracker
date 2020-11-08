@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /scraper/node_modules
-scraper/data/scores.json
+/scraper/dist
+scraper/src/data/scores.json

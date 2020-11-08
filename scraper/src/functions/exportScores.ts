@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { Fixture } from '../../src/types/Fixture';
+import { Fixture } from '../../../src/types/Fixture';
 
 export const exportScores = async (results: Fixture[]): Promise<void> => {
   const jsonString = JSON.stringify(results);

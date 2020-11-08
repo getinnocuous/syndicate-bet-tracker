@@ -1,4 +1,4 @@
-import { BetPick } from '../src/types/BetPick';
+import { BetPick } from '../../src/types/BetPick';
 
 export interface Bet {
   id: string;
