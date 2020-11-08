@@ -130,6 +130,7 @@ export const FixtureBox = ({
           {currentTime !== null && currentTime !== 'Finished' ? currentTime.trim() : null}
           {currentTime === 'Finished' ||
           currentTime === 'After Pen.' ||
+          currentTime === 'After ET' ||
           currentTime === 'Half Time' ||
           currentTime === null ? null : (
             <span>&apos;</span>
