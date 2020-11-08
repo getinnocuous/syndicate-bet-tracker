@@ -101,7 +101,7 @@ export const FixtureBox = ({ id, home, away, kickOff, currentTime, betStatus }: 
       <ScoreContainer>
         <Score color={getColorForStatus(betStatus)}>{currentTime !== null ? scoreLine : kickOff}</Score>
         <Time>
-          {currentTime}
+          {currentTime !== null && currentTime.trim()}
           {currentTime === 'Finished' || currentTime === 'After Pen.' || currentTime === null ? null : (
             <span>&apos;</span>
           )}

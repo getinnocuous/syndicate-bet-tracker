@@ -21,7 +21,7 @@ export const scrapeScores = async (): Promise<void> => {
       return ids.map(({ id, pick }: Bet) => {
         const home = $(`#${id} .event__participant--home`).text();
         const away = $(`#${id} .event__participant--away`).text();
-        const kickOff = $(`#${id} .event__time`).text().trim() || null;
+        const kickOff = $(`#${id} .event__time`).text() || null;
         const currentTime = $(`#${id} .event__stage .event__stage--block`).text() || null;
         const homeGoals = parseInt($(`#${id} .event__scores span:nth-of-type(1)`).text());
         const awayGoals = parseInt($(`#${id} .event__scores span:nth-of-type(2)`).text());
