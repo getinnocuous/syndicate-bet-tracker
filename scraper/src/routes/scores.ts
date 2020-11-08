@@ -8,7 +8,7 @@ export const scores = (app, fs) => {
       if (err) {
         throw err;
       }
-
+      res.setHeader('Content-Type', 'application/json');
       res.send(JSON.parse(data));
     });
   });
