@@ -1,5 +1,5 @@
-import { BetPick } from '../../../frontend/src/types/BetPick';
-import { BetStatus } from '../../../frontend/src/types/BetStatus';
+import { BetPick } from '../../../src/types/BetPick';
+import { BetStatus } from '../../../src/types/BetStatus';
 
 export const checkBetStatus = (betPick: BetPick, homeGoals: number, awayGoals: number): BetStatus => {
   if (homeGoals === null && awayGoals === null) {
