@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cron from 'node-cron';
 import fs from 'fs';
-import { cors } from 'cors';
+import cors from 'cors';
 import { prettyTime } from './utils/prettyTime';
 import { scrapeScores } from './functions/scrapeScores';
 import { appRouter } from './routes/routes';

@@ -6,8 +6,12 @@ import { Header } from './components/Header/Header';
 import { Stage } from './components/Stage/Stage';
 import { Loading } from './components/Loading/Loading';
 
+const env = process.env['NODE_ENV'];
+const isDev = env !== 'production';
+const endpoint = isDev ? '/api/scores' : (process.env.REACT_APP_PROD_ENDPOINT as string);
+
 const fetchData = (setScores: React.Dispatch<React.SetStateAction<Fixture[] | undefined>>) => {
-  fetch('http://209.97.182.68:3001/api/scores', {
+  fetch(endpoint, {
     mode: 'cors',
   })
     .then((response) => response.json())
