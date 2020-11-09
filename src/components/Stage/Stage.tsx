@@ -56,35 +56,40 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
           </Column>
         </>
       ) : null}
-      <h2 className="h1">Settled</h2>
-      <Column>
-        <>
-          <h2 className={'winning'}>Won </h2>
-          {anyBetsWon ? (
-            <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
-          ) : (
-            <p className="status">No bets won 🙄</p>
-          )}
-        </>
-      </Column>
-      <Column>
-        <>
-          <h2 className={'losing'}>Lost</h2>
-          {anyBetsLost ? (
-            <FixtureList
-              scores={scores.finishedGames.filter(
-                (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
-              )}
-            />
-          ) : (
-            <p className="status">
-              No bets lost!
-              <br />
-              💵 💵 💵
-            </p>
-          )}
-        </>
-      </Column>
+      {anyBetsWon ||
+        (anyBetsLost && (
+          <>
+            <h2 className="h1">Settled</h2>
+            <Column>
+              <>
+                <h2 className={'winning'}>Won</h2>
+                {anyBetsWon ? (
+                  <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
+                ) : (
+                  <p className="status">No bets won 🙄</p>
+                )}
+              </>
+            </Column>
+            <Column>
+              <>
+                <h2 className={'losing'}>Lost</h2>
+                {anyBetsLost ? (
+                  <FixtureList
+                    scores={scores.finishedGames.filter(
+                      (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+                    )}
+                  />
+                ) : (
+                  <p className="status">
+                    No bets lost!
+                    <br />
+                    💵 💵 💵
+                  </p>
+                )}
+              </>
+            </Column>
+          </>
+        ))}
       {areBetsPending && (
         <Centered>
           <h2 className={'drawing'}>Pending</h2>
