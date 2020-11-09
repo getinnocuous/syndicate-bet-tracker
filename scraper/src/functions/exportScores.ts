@@ -3,7 +3,7 @@ import { Fixture } from '../../../src/types/Fixture';
 
 interface Scores {
   finishedGames: Fixture[];
-  inPlayOrPending: Fixture[];
+  inPlayOrPendingGames: Fixture[];
 }
 
 export const exportScores = async (results: Scores): Promise<void> => {

@@ -24,7 +24,7 @@ const fetchData = (setScores: React.Dispatch<React.SetStateAction<Scores | undef
 
 interface Scores {
   finishedGames: Fixture[];
-  inPlayOrPending: Fixture[];
+  inPlayOrPendingGames: Fixture[];
 }
 
 function App(): JSX.Element {

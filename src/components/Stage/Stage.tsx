@@ -7,19 +7,19 @@ import { Centered, Grid, Column } from '../Layout/Layout';
 interface StageProps {
   scores: {
     finishedGames: Fixture[];
-    inPlayOrPending: Fixture[];
+    inPlayOrPendingGames: Fixture[];
   };
 }
 
 export const Stage = ({ scores }: StageProps): JSX.Element => {
-  const areBetsInPlay = scores.inPlayOrPending.some((score) => score.betStatus !== BetStatus.Pending);
-  const areBetsPending = scores.inPlayOrPending.some((score) => score.betStatus === BetStatus.Pending);
+  const areBetsInPlay = scores.inPlayOrPendingGames.some((score) => score.betStatus !== BetStatus.Pending);
+  const areBetsPending = scores.inPlayOrPendingGames.some((score) => score.betStatus === BetStatus.Pending);
   const anyBetsWon = scores.finishedGames.some((score) => score.betStatus === BetStatus.Winning);
   const anyBetsLost = scores.finishedGames.some(
     (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
   );
-  const areBetsCurrentlyWinning = scores.inPlayOrPending.some((score) => score.betStatus === BetStatus.Winning);
-  const areBetsCurrentlyLosing = scores.inPlayOrPending.some(
+  const areBetsCurrentlyWinning = scores.inPlayOrPendingGames.some((score) => score.betStatus === BetStatus.Winning);
+  const areBetsCurrentlyLosing = scores.inPlayOrPendingGames.some(
     (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
   );
 
@@ -32,7 +32,9 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
             <>
               <h2 className={'winning'}>Winning</h2>
               {areBetsCurrentlyWinning ? (
-                <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Winning)} />
+                <FixtureList
+                  scores={scores.inPlayOrPendingGames.filter((score) => score.betStatus === BetStatus.Winning)}
+                />
               ) : (
                 <p className="status">Currently, no bets are winning 🙄</p>
               )}
@@ -43,7 +45,7 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
               <h2 className={'losing'}>Losing</h2>
               {areBetsCurrentlyLosing ? (
                 <FixtureList
-                  scores={scores.inPlayOrPending.filter(
+                  scores={scores.inPlayOrPendingGames.filter(
                     (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
                   )}
                 />
@@ -87,7 +89,9 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
         <Centered>
           <h2 className={'drawing'}>Pending</h2>
           <Grid>
-            <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Pending)} />
+            <FixtureList
+              scores={scores.inPlayOrPendingGames.filter((score) => score.betStatus === BetStatus.Pending)}
+            />
           </Grid>
         </Centered>
       )}
