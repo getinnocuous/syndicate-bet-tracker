@@ -123,7 +123,7 @@ export const FixtureBox = ({
   console.log({ pick });
   return (
     <FixtureContainer id={id} color={getColorForStatus(betStatus)}>
-      <Badge>{homeBadge ? <img alt={home.name} src={homeBadge} /> : <span>{home.name}</span>}</Badge>
+      <Badge>{homeBadge ? <img src={homeBadge} /> : <span>{home.name}</span>}</Badge>
       <ScoreContainer>
         <Score color={getColorForStatus(betStatus)}>{currentTime !== null ? scoreLine : kickOff}</Score>
         <Time>
@@ -140,7 +140,7 @@ export const FixtureBox = ({
           {playerName} - {pick}
         </Player>
       </ScoreContainer>
-      <Badge>{awayBadge ? <img alt={away.name} src={awayBadge} /> : <span>{away.name}</span>}</Badge>
+      <Badge>{awayBadge ? <img src={awayBadge} /> : <span>{away.name}</span>}</Badge>
     </FixtureContainer>
   );
 };

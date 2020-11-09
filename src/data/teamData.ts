@@ -333,7 +333,7 @@ export const teamData: any = {
   'Charlton Athletic': {
     badge: charlton_athletic,
   },
-  Chelmsford: {
+  'Chelmsford City': {
     badge: chelmsford_city,
   },
   Chelsea: {
@@ -588,7 +588,7 @@ export const teamData: any = {
   'Newport County': {
     badge: newport_county,
   },
-  Northampton: {
+  'Northampton Town': {
     badge: northampton_town,
   },
   'Norwich City': {
