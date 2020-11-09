@@ -49,7 +49,8 @@ const Badge = styled.div`
   span {
     display: block;
     margin: auto;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    word-break: break-word;
   }
 `;
 
@@ -120,10 +121,10 @@ export const FixtureBox = ({
   const homeBadge = getTeamBadge(home.name);
   const awayBadge = getTeamBadge(away.name);
   const scoreLine = `${home?.homeGoals} - ${away?.awayGoals}`;
-  console.log({ pick });
+
   return (
     <FixtureContainer id={id} color={getColorForStatus(betStatus)}>
-      <Badge>{homeBadge ? <img src={homeBadge} /> : <span>{home.name}</span>}</Badge>
+      <Badge>{homeBadge ? <img alt={home.name} src={homeBadge} /> : <span>{home.name}</span>}</Badge>
       <ScoreContainer>
         <Score color={getColorForStatus(betStatus)}>{currentTime !== null ? scoreLine : kickOff}</Score>
         <Time>
@@ -140,7 +141,7 @@ export const FixtureBox = ({
           {playerName} - {pick}
         </Player>
       </ScoreContainer>
-      <Badge>{awayBadge ? <img src={awayBadge} /> : <span>{away.name}</span>}</Badge>
+      <Badge>{awayBadge ? <img alt={away.name} src={awayBadge} /> : <span>{away.name}</span>}</Badge>
     </FixtureContainer>
   );
 };
