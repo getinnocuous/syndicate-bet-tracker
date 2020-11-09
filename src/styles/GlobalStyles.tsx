@@ -122,6 +122,16 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     text-align: center;
   }
+
+  .status {
+    margin: 0 0 2rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    text-align: center;
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}) {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 export const Container = styled.div`

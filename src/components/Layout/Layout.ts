@@ -20,4 +20,5 @@ export const Centered = styled.div`
 export const Column = styled.div`
   display: grid;
   grid-row-gap: var(--v-spacing);
+  align-self: flex-start;
 `;

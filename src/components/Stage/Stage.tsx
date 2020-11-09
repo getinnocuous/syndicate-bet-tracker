@@ -12,26 +12,44 @@ interface StageProps {
 }
 
 export const Stage = ({ scores }: StageProps): JSX.Element => {
-  const gamesInPlay = scores.inPlayOrPending.some((score) => score.betStatus !== BetStatus.Pending);
+  const areBetsInPlay = scores.inPlayOrPending.some((score) => score.betStatus !== BetStatus.Pending);
+  const areBetsPending = scores.inPlayOrPending.some((score) => score.betStatus === BetStatus.Pending);
+  const anyBetsWon = scores.finishedGames.some((score) => score.betStatus === BetStatus.Winning);
+  const anyBetsLost = scores.finishedGames.some(
+    (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+  );
+  const areBetsCurrentlyWinning = scores.inPlayOrPending.some((score) => score.betStatus === BetStatus.Winning);
+  const areBetsCurrentlyLosing = scores.inPlayOrPending.some(
+    (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+  );
+
   return (
     <main>
-      {gamesInPlay ? (
+      {areBetsInPlay ? (
         <>
           <h2 className="h1">In-Play</h2>
           <Column>
             <>
               <h2 className={'winning'}>Winning</h2>
-              <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Winning)} />
+              {areBetsCurrentlyWinning ? (
+                <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Winning)} />
+              ) : (
+                <p className="status">Currently, no bets are winning 🙄</p>
+              )}
             </>
           </Column>
           <Column>
             <>
               <h2 className={'losing'}>Losing</h2>
-              <FixtureList
-                scores={scores.inPlayOrPending.filter(
-                  (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
-                )}
-              />
+              {areBetsCurrentlyLosing ? (
+                <FixtureList
+                  scores={scores.inPlayOrPending.filter(
+                    (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+                  )}
+                />
+              ) : (
+                <p className="status">Currently, no bets are losing 🤞</p>
+              )}
             </>
           </Column>
         </>
@@ -39,26 +57,40 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
       <h2 className="h1">Settled</h2>
       <Column>
         <>
-          <h2 className={'winning'}>Won</h2>
-          <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
+          <h2 className={'winning'}>Won </h2>
+          {anyBetsWon ? (
+            <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
+          ) : (
+            <p className="status">No bets won 🙄</p>
+          )}
         </>
       </Column>
       <Column>
         <>
           <h2 className={'losing'}>Lost</h2>
-          <FixtureList
-            scores={scores.finishedGames.filter(
-              (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
-            )}
-          />
+          {anyBetsLost ? (
+            <FixtureList
+              scores={scores.finishedGames.filter(
+                (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+              )}
+            />
+          ) : (
+            <p className="status">
+              No bets lost!
+              <br />
+              💵 💵 💵
+            </p>
+          )}
         </>
       </Column>
-      <Centered>
-        <h2 className={'drawing'}>Pending</h2>
-        <Grid>
-          <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Pending)} />
-        </Grid>
-      </Centered>
+      {areBetsPending && (
+        <Centered>
+          <h2 className={'drawing'}>Pending</h2>
+          <Grid>
+            <FixtureList scores={scores.inPlayOrPending.filter((score) => score.betStatus === BetStatus.Pending)} />
+          </Grid>
+        </Centered>
+      )}
     </main>
   );
 };
