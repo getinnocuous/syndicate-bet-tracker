@@ -27,13 +27,6 @@ interface Scores {
   inPlayOrPending: Fixture[];
 }
 
-const og = {
-  title: 'Syndicate Bet Tracker',
-  description: 'Track all the bets in one place',
-  image: 'https://syndicate-bet-tracker.vercel.app/og.jpg',
-  url: 'https://syndicate-bet-tracker.vercel.app/',
-};
-
 function App(): JSX.Element {
   const [scores, setScores] = useState<Scores>();
   const timeInterval = 15000; // 15 seconds
@@ -53,14 +46,6 @@ function App(): JSX.Element {
       <Container>
         <Helmet>
           <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet" />
-          <meta property="og:title" content={og.title} />
-          <meta property="og:description" content={og.description} />
-          <meta property="og:image" content={og.image} />
-          <meta property="og:url" content={og.url} />
-          <meta name="twitter:title" content={og.title} />
-          <meta name="twitter:description" content={og.title} />
-          <meta name="twitter:image" content={og.image} />
-          <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
         <GlobalStyle />
         {scores ? <Stage scores={scores} /> : <Loading />}
