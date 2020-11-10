@@ -198,7 +198,7 @@ export const teamData: any = {
   Aberdeen: {
     badge: aberdeen,
   },
-  'Accrington Stanley': {
+  Accrington: {
     badge: accrington_stanley,
   },
   'AFC Bournemouth': {
@@ -207,7 +207,7 @@ export const teamData: any = {
   'AFC Fylde': {
     badge: afc_fylde,
   },
-  'AFC Telford United': {
+  'AFC Telford': {
     badge: afc_telford_united,
   },
   'AFC Wimbledon': {
@@ -222,7 +222,7 @@ export const teamData: any = {
   'Aldershot Town': {
     badge: aldershot_town,
   },
-  'Alfreton Town': {
+  Alfreton: {
     badge: alfreton_town,
   },
   'Alloa Athletic': {
@@ -258,7 +258,7 @@ export const teamData: any = {
   'Bath City': {
     badge: bath_city,
   },
-  'Billericay Town': {
+  Billericay: {
     badge: billericay_town,
   },
   'Birmingham City': {
@@ -270,7 +270,7 @@ export const teamData: any = {
   Blackpool: {
     badge: blackpool,
   },
-  'Blyth Spartans': {
+  Blyth: {
     badge: blyth_spartans,
   },
   'Bolton Wanderers': {
@@ -279,7 +279,7 @@ export const teamData: any = {
   'Boreham Wood': {
     badge: boreham_wood,
   },
-  'Boston United': {
+  'Boston Utd': {
     badge: boston_united,
   },
   'Brackley Town': {
@@ -288,10 +288,10 @@ export const teamData: any = {
   'Bradford City': {
     badge: bradford_city,
   },
-  'Bradford Park Avenue': {
+  'Bradford PA': {
     badge: bradford_park_avenue,
   },
-  'Braintree Town': {
+  Braintree: {
     badge: braintree_town,
   },
   'Brechin City': {
@@ -330,7 +330,7 @@ export const teamData: any = {
   Celtic: {
     badge: celtic,
   },
-  'Charlton Athletic': {
+  Charlton: {
     badge: charlton_athletic,
   },
   Chelmsford: {
@@ -357,10 +357,10 @@ export const teamData: any = {
   Clyde: {
     badge: clyde,
   },
-  'Colchester United': {
+  Colchester: {
     badge: colchester_united,
   },
-  'Concord Rangers': {
+  Concord: {
     badge: concord_rangers,
   },
   Coventry: {
@@ -426,7 +426,7 @@ export const teamData: any = {
   Eastleigh: {
     badge: eastleigh,
   },
-  'Ebbsfleet United': {
+  Ebbsfleet: {
     badge: ebbsfleet_united,
   },
   'Edinburgh City': {
@@ -447,16 +447,16 @@ export const teamData: any = {
   Falkirk: {
     badge: falkirk,
   },
-  'Farsley Celtic': {
+  Farsley: {
     badge: farsley_celtic,
   },
-  'FC Halifax Town': {
+  'FC Halifax': {
     badge: fc_halifax_town,
   },
-  'Fleetwood Town': {
+  Fleetwood: {
     badge: fleetwood_town,
   },
-  'Forest Green Rovers': {
+  'Forest Green': {
     badge: forest_green_rovers,
   },
   'Forfar Athletic': {
@@ -471,13 +471,13 @@ export const teamData: any = {
   Gillingham: {
     badge: gillingham,
   },
-  'Gloucester City': {
+  Gloucester: {
     badge: gloucester_city,
   },
   'Greenock Morton': {
     badge: greenock_morton,
   },
-  'Grimsby Town': {
+  Grimsby: {
     badge: grimsby_town,
   },
   Guiseley: {
@@ -489,7 +489,7 @@ export const teamData: any = {
   'Hampton & Richmond': {
     badge: hampton_and_richmond_borough,
   },
-  'Harrogate Town': {
+  Harrogate: {
     badge: harrogate_town,
   },
   'Hartlepool United': {
@@ -498,7 +498,7 @@ export const teamData: any = {
   'Havant & W': {
     badge: havant_and_waterlooville,
   },
-  'Hemel Hempstead Town': {
+  'Hemel Hempstead': {
     badge: hemel_hempstead_town,
   },
   Hereford: {
@@ -510,16 +510,16 @@ export const teamData: any = {
   'Huddersfield Town': {
     badge: huddersfield_town,
   },
-  'Hull City': {
+  Hull: {
     badge: hull_city,
   },
-  'Hungerford Town': {
+  Hungerford: {
     badge: hungerford_town,
   },
   'Inverness Caledonian Thistle': {
     badge: inverness_caledonian_thistle,
   },
-  'Ipswich Town': {
+  Ipswich: {
     badge: ipswich_town,
   },
   'Kettering Town': {
@@ -564,7 +564,7 @@ export const teamData: any = {
   'Manchester United': {
     badge: manchester_united,
   },
-  'Mansfield Town': {
+  Mansfield: {
     badge: mansfield_town,
   },
   Millwall: {
@@ -585,7 +585,7 @@ export const teamData: any = {
   'Newcastle United': {
     badge: newcastle_united,
   },
-  'Newport County': {
+  Newport: {
     badge: newport_county,
   },
   Northampton: {
@@ -618,7 +618,7 @@ export const teamData: any = {
   Peterhead: {
     badge: peterhead,
   },
-  'Plymouth Argyle': {
+  Plymouth: {
     badge: plymouth_argyle,
   },
   Portsmouth: {
@@ -657,7 +657,7 @@ export const teamData: any = {
   'Rotherham United': {
     badge: rotherham_united,
   },
-  'Salford City': {
+  Salford: {
     badge: salford_city,
   },
   Scunthorpe: {
@@ -687,10 +687,10 @@ export const teamData: any = {
   Southport: {
     badge: southport,
   },
-  'Spennymoor Town': {
+  Spennymoor: {
     badge: spennymoor_town,
   },
-  'St. Albans City': {
+  'St. Albans': {
     badge: st_albans_city,
   },
   Stenhousemuir: {
@@ -726,7 +726,7 @@ export const teamData: any = {
   'Swansea City': {
     badge: swansea_city,
   },
-  'Swindon Town': {
+  Swindon: {
     badge: swindon_town,
   },
   Torquay: {
@@ -747,7 +747,7 @@ export const teamData: any = {
   Wealdstone: {
     badge: wealdstone,
   },
-  'Welling United': {
+  Welling: {
     badge: welling_united,
   },
   'West Brom': {
@@ -777,7 +777,7 @@ export const teamData: any = {
   'Yeovil Town': {
     badge: yeovil_town,
   },
-  'York City': {
+  York: {
     badge: york_city,
   },
 };
