@@ -194,7 +194,13 @@ import wycombe_wanderers from '../images/badges/wycombe_wanderers.png';
 import yeovil_town from '../images/badges/yeovil_town.png';
 import york_city from '../images/badges/york_city.png';
 
-export const teamData: any = {
+interface Team {
+  [key: string]: {
+    badge: string;
+  };
+}
+
+export const teamData: Team = {
   Aberdeen: {
     badge: aberdeen,
   },

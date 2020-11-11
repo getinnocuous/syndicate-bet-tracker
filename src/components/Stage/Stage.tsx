@@ -14,6 +14,7 @@ interface StageProps {
 export const Stage = ({ scores }: StageProps): JSX.Element => {
   const areBetsInPlay = scores.inPlayOrPendingGames.some((score) => score.betStatus !== BetStatus.Pending);
   const areBetsPending = scores.inPlayOrPendingGames.some((score) => score.betStatus === BetStatus.Pending);
+  const anyBetsSettled = scores.finishedGames.length;
   const anyBetsWon = scores.finishedGames.some((score) => score.betStatus === BetStatus.Winning);
   const anyBetsLost = scores.finishedGames.some(
     (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
@@ -56,40 +57,39 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
           </Column>
         </>
       ) : null}
-      {anyBetsWon ||
-        (anyBetsLost && (
-          <>
-            <h2 className="h1">Settled</h2>
-            <Column>
-              <>
-                <h2 className={'winning'}>Won </h2>
-                {anyBetsWon ? (
-                  <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
-                ) : (
-                  <p className="status">No bets won 🙄</p>
-                )}
-              </>
-            </Column>
-            <Column>
-              <>
-                <h2 className={'losing'}>Lost</h2>
-                {anyBetsLost ? (
-                  <FixtureList
-                    scores={scores.finishedGames.filter(
-                      (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
-                    )}
-                  />
-                ) : (
-                  <p className="status">
-                    No bets lost!
-                    <br />
-                    💵 💵 💵
-                  </p>
-                )}
-              </>
-            </Column>
-          </>
-        ))}
+      {anyBetsSettled && (
+        <>
+          <h2 className="h1">Settled</h2>
+          <Column>
+            <>
+              <h2 className={'winning'}>Won </h2>
+              {anyBetsWon ? (
+                <FixtureList scores={scores.finishedGames.filter((score) => score.betStatus === BetStatus.Winning)} />
+              ) : (
+                <p className="status">No bets won 🙄</p>
+              )}
+            </>
+          </Column>
+          <Column>
+            <>
+              <h2 className={'losing'}>Lost</h2>
+              {anyBetsLost ? (
+                <FixtureList
+                  scores={scores.finishedGames.filter(
+                    (score) => score.betStatus !== BetStatus.Winning && score.betStatus !== BetStatus.Pending
+                  )}
+                />
+              ) : (
+                <p className="status">
+                  No bets lost!
+                  <br />
+                  💵 💵 💵
+                </p>
+              )}
+            </>
+          </Column>
+        </>
+      )}
       {areBetsPending && (
         <Centered>
           <h2 className={'drawing'}>Pending</h2>
