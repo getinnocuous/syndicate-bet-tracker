@@ -335,7 +335,7 @@ export const teamData: Team = {
   Bury: {
     badge: bury,
   },
-  Cambridge: {
+  'Cambridge Utd': {
     badge: cambridge_united,
   },
   'Cardiff City': {
