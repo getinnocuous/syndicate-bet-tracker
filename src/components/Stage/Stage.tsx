@@ -80,11 +80,7 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
                   )}
                 />
               ) : (
-                <p className="status">
-                  No bets lost!
-                  <br />
-                  💵 💵 💵
-                </p>
+                <p className="status">No bets lost 🤞</p>
               )}
             </>
           </Column>
