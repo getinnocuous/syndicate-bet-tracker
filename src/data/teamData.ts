@@ -40,6 +40,7 @@ import bromley from '../images/badges/bromley.png';
 import burnley from '../images/badges/burnley.png';
 import burton_albion from '../images/badges/burton_albion.png';
 import bury from '../images/badges/bury.png';
+import cambridge_united from '../images/badges/cambridge_united.png';
 import cardiff_city from '../images/badges/cardiff_city.png';
 import carlisle_united from '../images/badges/carlisle_united.png';
 import celtic from '../images/badges/celtic.png';
@@ -54,13 +55,14 @@ import chorley from '../images/badges/chorley.png';
 import clyde from '../images/badges/clyde.png';
 import colchester_united from '../images/badges/colchester_united.png';
 import concord_rangers from '../images/badges/concord_rangers.png';
-import coventry_city from '../images/badges/coventry_city.png';
 import cove_rangers from '../images/badges/cove_rangers.png';
+import coventry_city from '../images/badges/coventry_city.png';
 import cowdenbeath from '../images/badges/cowdenbeath.png';
 import crawley_town from '../images/badges/crawley_town.png';
 import crewe_alexandra from '../images/badges/crewe_alexandra.png';
 import crystal_palace from '../images/badges/crystal_palace.png';
 import curzon_ashton from '../images/badges/curzon_ashton.png';
+import dagenham_and_redbridge from '../images/badges/dagenham_and_redbridge.png';
 import darlington from '../images/badges/darlington.png';
 import dartford from '../images/badges/dartford.png';
 import derby_county from '../images/badges/derby_county.png';
@@ -69,11 +71,11 @@ import dorking_wanderers from '../images/badges/dorking_wanderers.png';
 import dover_athletic from '../images/badges/dover_athletic.png';
 import dulwich_hamlet from '../images/badges/dulwich_hamlet.png';
 import dumbarton from '../images/badges/dumbarton.png';
-import dundee from '../images/badges/dundee.png';
 import dundee_united from '../images/badges/dundee_united.png';
+import dundee from '../images/badges/dundee.png';
 import dunfermline_athletic from '../images/badges/dunfermline_athletic.png';
-import eastbourne_borough from '../images/badges/eastbourne_borough.png';
 import east_fife from '../images/badges/east_fife.png';
+import eastbourne_borough from '../images/badges/eastbourne_borough.png';
 import eastleigh from '../images/badges/eastleigh.png';
 import ebbsfleet_united from '../images/badges/ebbsfleet_united.png';
 import edinburgh_city from '../images/badges/edinburgh_city.png';
@@ -99,6 +101,7 @@ import hampton_and_richmond_borough from '../images/badges/hampton_and_richmond_
 import harrogate_town from '../images/badges/harrogate_town.png';
 import hartlepool_united from '../images/badges/hartlepool_united.png';
 import havant_and_waterlooville from '../images/badges/havant_and_waterlooville.png';
+import heart_of_midlothian from '../images/badges/heart_of_midlothian.png';
 import hemel_hempstead_town from '../images/badges/hemel_hempstead_town.png';
 import hereford from '../images/badges/hereford.png';
 import hibernian from '../images/badges/hibernian.png';
@@ -108,6 +111,7 @@ import hungerford_town from '../images/badges/hungerford_town.png';
 import inverness_caledonian_thistle from '../images/badges/inverness_caledonian_thistle.png';
 import ipswich_town from '../images/badges/ipswich_town.png';
 import kettering_town from '../images/badges/kettering_town.png';
+import kidderminster_harriers from '../images/badges/kidderminster_harriers.png';
 import kilmarnock from '../images/badges/kilmarnock.png';
 import kings_lynn_town from '../images/badges/kings_lynn_town.png';
 import leamington from '../images/badges/leamington.png';
@@ -119,9 +123,12 @@ import liverpool from '../images/badges/liverpool.png';
 import livingston from '../images/badges/livingston.png';
 import luton_town from '../images/badges/luton_town.png';
 import macclesfield_town from '../images/badges/macclesfield_town.png';
+import maidenhead_united from '../images/badges/maidenhead_united.png';
+import maidstone_united from '../images/badges/maidstone_united.png';
 import manchester_city from '../images/badges/manchester_city.png';
 import manchester_united from '../images/badges/manchester_united.png';
 import mansfield_town from '../images/badges/mansfield_town.png';
+import middlesbrough from '../images/badges/middlesbrough.png';
 import millwall from '../images/badges/millwall.png';
 import milton_keynes_dons from '../images/badges/milton_keynes_dons.png';
 import montrose from '../images/badges/montrose.png';
@@ -140,12 +147,12 @@ import partick_thistle from '../images/badges/partick_thistle.png';
 import peterborough_united from '../images/badges/peterborough_united.png';
 import peterhead from '../images/badges/peterhead.png';
 import plymouth_argyle from '../images/badges/plymouth_argyle.png';
-import portsmouth from '../images/badges/portsmouth.png';
 import port_vale from '../images/badges/port_vale.png';
+import portsmouth from '../images/badges/portsmouth.png';
 import preston_north_end from '../images/badges/preston_north_end.png';
 import queen_of_the_south from '../images/badges/queen_of_the_south.png';
-import queens_park from '../images/badges/queens_park.png';
 import queens_park_rangers from '../images/badges/queens_park_rangers.png';
+import queens_park from '../images/badges/queens_park.png';
 import raith_rovers from '../images/badges/raith_rovers.png';
 import rangers from '../images/badges/rangers.png';
 import reading from '../images/badges/reading.png';
@@ -164,11 +171,11 @@ import southend_united from '../images/badges/southend_united.png';
 import southport from '../images/badges/southport.png';
 import spennymoor_town from '../images/badges/spennymoor_town.png';
 import st_albans_city from '../images/badges/st_albans_city.png';
+import st_johnstone from '../images/badges/st_johnstone.png';
+import st_mirren from '../images/badges/st_mirren.png';
 import stenhousemuir from '../images/badges/stenhousemuir.png';
 import stevenage from '../images/badges/stevenage.png';
 import stirling_albion from '../images/badges/stirling_albion.png';
-import st_johnstone from '../images/badges/st_johnstone.png';
-import st_mirren from '../images/badges/st_mirren.png';
 import stockport_county from '../images/badges/stockport_county.png';
 import stoke_city from '../images/badges/stoke_city.png';
 import stranraer from '../images/badges/stranraer.png';
@@ -176,6 +183,7 @@ import sunderland from '../images/badges/sunderland.png';
 import sutton_united from '../images/badges/sutton_united.png';
 import swansea_city from '../images/badges/swansea_city.png';
 import swindon_town from '../images/badges/swindon_town.png';
+import tonbrdige_angels from '../images/badges/tonbrdige_angels.png';
 import torquay_united from '../images/badges/torquay_united.png';
 import tottenham_hotspur from '../images/badges/tottenham_hotspur.png';
 import tranmere_rovers from '../images/badges/tranmere_rovers.png';
@@ -327,6 +335,9 @@ export const teamData: Team = {
   Bury: {
     badge: bury,
   },
+  Cambridge: {
+    badge: cambridge_united,
+  },
   'Cardiff City': {
     badge: cardiff_city,
   },
@@ -389,6 +400,9 @@ export const teamData: Team = {
   },
   'Curzon Ashton': {
     badge: curzon_ashton,
+  },
+  'Dag & Red': {
+    badge: dagenham_and_redbridge,
   },
   Darlington: {
     badge: darlington,
@@ -504,6 +518,9 @@ export const teamData: Team = {
   'Havant & W': {
     badge: havant_and_waterlooville,
   },
+  Hearts: {
+    badge: heart_of_midlothian,
+  },
   'Hemel Hempstead': {
     badge: hemel_hempstead_town,
   },
@@ -530,6 +547,9 @@ export const teamData: Team = {
   },
   'Kettering Town': {
     badge: kettering_town,
+  },
+  Kidderminster: {
+    badge: kidderminster_harriers,
   },
   Kilmarnock: {
     badge: kilmarnock,
@@ -564,6 +584,12 @@ export const teamData: Team = {
   'Macclesfield Town': {
     badge: macclesfield_town,
   },
+  Maidstone: {
+    badge: maidstone_united,
+  },
+  Maidenhead: {
+    badge: maidenhead_united,
+  },
   'Man City': {
     badge: manchester_city,
   },
@@ -572,6 +598,9 @@ export const teamData: Team = {
   },
   Mansfield: {
     badge: mansfield_town,
+  },
+  Middlesbrough: {
+    badge: middlesbrough,
   },
   Millwall: {
     badge: millwall,
@@ -734,6 +763,9 @@ export const teamData: Team = {
   },
   Swindon: {
     badge: swindon_town,
+  },
+  Tonbridge: {
+    badge: tonbrdige_angels,
   },
   Torquay: {
     badge: torquay_united,
