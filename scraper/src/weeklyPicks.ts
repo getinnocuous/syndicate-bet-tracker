@@ -28,11 +28,11 @@ export const WEEKLY_PICKS: Bet[] = [
   //   pick: BetPick.AwayWin,
   //   playerName: Players.Kong,
   // },
-  // {
-  //   id: '',
-  //   pick: BetPick.AwayWin,
-  //   playerName: Players.Bowers,
-  // },
+  {
+    id: 'g_1_UeGuE5a9',
+    pick: BetPick.AwayWin,
+    playerName: Players.Bowers,
+  },
   {
     id: 'g_1_lzUkKOyk',
     pick: BetPick.AwayWin,
