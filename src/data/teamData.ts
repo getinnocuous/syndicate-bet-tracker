@@ -674,7 +674,7 @@ export const teamData: Team = {
   'Queens Park Rangers': {
     badge: queens_park_rangers,
   },
-  'Raith Rovers': {
+  Raith: {
     badge: raith_rovers,
   },
   Rangers: {
