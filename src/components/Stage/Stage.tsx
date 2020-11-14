@@ -57,7 +57,7 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
           </Column>
         </>
       ) : null}
-      {anyBetsSettled && (
+      {anyBetsSettled ? (
         <>
           <h2 className="h1">Settled</h2>
           <Column>
@@ -85,7 +85,7 @@ export const Stage = ({ scores }: StageProps): JSX.Element => {
             </>
           </Column>
         </>
-      )}
+      ) : null}
       {areBetsPending && (
         <Centered>
           <h2 className={'drawing'}>Pending</h2>

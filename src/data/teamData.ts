@@ -392,7 +392,7 @@ export const teamData: Team = {
   Crawley: {
     badge: crawley_town,
   },
-  'Crewe Alexandra': {
+  Crewe: {
     badge: crewe_alexandra,
   },
   'Crystal Palace': {
