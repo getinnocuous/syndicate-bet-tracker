@@ -54,7 +54,7 @@ export const WEEKLY_PICKS: Bet[] = [
     playerName: Players.Jamie,
   },
   {
-    id: '',
+    id: 'g_1_OI7qdhcL',
     pick: BetPick.HomeWin,
     playerName: Players.Joe,
   },
