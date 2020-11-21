@@ -314,7 +314,7 @@ export const teamData: Team = {
   Brentford: {
     badge: brentford,
   },
-  'Brighton & Hove Albion': {
+  Brighton: {
     badge: brighton_and_hove_albion,
   },
   'Bristol City': {
@@ -413,7 +413,7 @@ export const teamData: Team = {
   'Derby County': {
     badge: derby_county,
   },
-  'Doncaster Rovers': {
+  Doncaster: {
     badge: doncaster_rovers,
   },
   'Dorking Wanderers': {
@@ -461,7 +461,7 @@ export const teamData: Team = {
   Everton: {
     badge: everton,
   },
-  'Exeter City': {
+  Exeter: {
     badge: exeter_city,
   },
   Falkirk: {
@@ -569,7 +569,7 @@ export const teamData: Team = {
   'Leyton Orient': {
     badge: leyton_orient,
   },
-  'Lincoln City': {
+  Lincoln: {
     badge: lincoln_city,
   },
   Liverpool: {
@@ -626,7 +626,7 @@ export const teamData: Team = {
   Northampton: {
     badge: northampton_town,
   },
-  'Norwich City': {
+  Norwich: {
     badge: norwich_city,
   },
   'Nottingham Forest': {
@@ -704,7 +704,7 @@ export const teamData: Team = {
   'Sheff Wed': {
     badge: sheffield_wednesday,
   },
-  'Shrewsbury Town': {
+  Shrewsbury: {
     badge: shrewsbury_town,
   },
   'Slough Town': {
