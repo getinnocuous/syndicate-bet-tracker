@@ -30,7 +30,7 @@ export const WEEKLY_PICKS: Bet[] = [
   },
   {
     id: 'g_1_rDmvHDRO',
-    pick: BetPick.AwayWin,
+    pick: BetPick.HomeWin,
     playerName: Players.Martin,
   },
   {
