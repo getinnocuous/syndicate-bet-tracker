@@ -38,21 +38,21 @@ export const WEEKLY_PICKS: Bet[] = [
     pick: BetPick.HomeWin,
     playerName: Players.Elliot,
   },
-  // {
-  //   id: '',
-  //   pick: BetPick.AwayWin,
-  //   playerName: Players.Kie,
-  // },
+  {
+    id: 'g_1_fu3Xkuu9',
+    pick: BetPick.HomeWin,
+    playerName: Players.Kie,
+  },
   {
     id: 'g_1_zVSfT2JS',
     pick: BetPick.HomeWin,
     playerName: Players.Terry,
   },
-  // {
-  //   id: '',
-  //   pick: BetPick.HomeWin,
-  //   playerName: Players.Jamie,
-  // },
+  {
+    id: 'g_1_h6wjUr4M',
+    pick: BetPick.AwayWin,
+    playerName: Players.Jamie,
+  },
   {
     id: 'g_1_6DavxcEF',
     pick: BetPick.HomeWin,

@@ -92,6 +92,7 @@ import forfar_athletic from '../images/badges/forfar_athletic.png';
 import fulham from '../images/badges/fulham.png';
 import gateshead from '../images/badges/gateshead.png';
 import gillingham from '../images/badges/gillingham.png';
+import glenavon from '../images/badges/glenavon.png';
 import gloucester_city from '../images/badges/gloucester_city.png';
 import greenock_morton from '../images/badges/greenock_morton.png';
 import grimsby_town from '../images/badges/grimsby_town.png';
@@ -119,6 +120,7 @@ import leeds_united from '../images/badges/leeds_united.png';
 import leicester_city from '../images/badges/leicester_city.png';
 import leyton_orient from '../images/badges/leyton_orient.png';
 import lincoln_city from '../images/badges/lincoln_city.png';
+import linfield from '../images/badges/linfield.png';
 import liverpool from '../images/badges/liverpool.png';
 import livingston from '../images/badges/livingston.png';
 import luton_town from '../images/badges/luton_town.png';
@@ -491,6 +493,9 @@ export const teamData: Team = {
   Gillingham: {
     badge: gillingham,
   },
+  Glenavon: {
+    badge: glenavon,
+  },
   Gloucester: {
     badge: gloucester_city,
   },
@@ -571,6 +576,9 @@ export const teamData: Team = {
   },
   Lincoln: {
     badge: lincoln_city,
+  },
+  Linfield: {
+    badge: linfield,
   },
   Liverpool: {
     badge: liverpool,
