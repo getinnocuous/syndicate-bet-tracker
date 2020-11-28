@@ -217,7 +217,7 @@ export const teamData: Team = {
   Accrington: {
     badge: accrington_stanley,
   },
-  'AFC Bournemouth': {
+  Bournemouth: {
     badge: afc_bournemouth,
   },
   'AFC Fylde': {
@@ -289,7 +289,7 @@ export const teamData: Team = {
   Blyth: {
     badge: blyth_spartans,
   },
-  'Bolton Wanderers': {
+  Bolton: {
     badge: bolton_wanderers,
   },
   'Boreham Wood': {
@@ -430,7 +430,7 @@ export const teamData: Team = {
   Dumbarton: {
     badge: dumbarton,
   },
-  Dundee: {
+  'Dundee FC': {
     badge: dundee,
   },
   'Dundee United': {
@@ -697,7 +697,7 @@ export const teamData: Team = {
   'Ross County': {
     badge: ross_county,
   },
-  'Rotherham United': {
+  Rotherham: {
     badge: rotherham_united,
   },
   Salford: {
