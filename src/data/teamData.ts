@@ -340,7 +340,7 @@ export const teamData: Team = {
   'Cambridge Utd': {
     badge: cambridge_united,
   },
-  'Cardiff City': {
+  Cardiff: {
     badge: cardiff_city,
   },
   Carlisle: {
@@ -586,7 +586,7 @@ export const teamData: Team = {
   Livingston: {
     badge: livingston,
   },
-  'Luton Town': {
+  Luton: {
     badge: luton_town,
   },
   'Macclesfield Town': {
