@@ -115,6 +115,7 @@ import kettering_town from '../images/badges/kettering_town.png';
 import kidderminster_harriers from '../images/badges/kidderminster_harriers.png';
 import kilmarnock from '../images/badges/kilmarnock.png';
 import kings_lynn_town from '../images/badges/kings_lynn_town.png';
+import larne from '../images/badges/larne.png';
 import leamington from '../images/badges/leamington.png';
 import leeds_united from '../images/badges/leeds_united.png';
 import leicester_city from '../images/badges/leicester_city.png';
@@ -562,6 +563,9 @@ export const teamData: Team = {
   'King’s Lynn': {
     badge: kings_lynn_town,
   },
+  Larne: {
+    badge: larne,
+  },
   Leamington: {
     badge: leamington,
   },
@@ -670,7 +674,7 @@ export const teamData: Team = {
   'Port Vale': {
     badge: port_vale,
   },
-  'Preston North End': {
+  Preston: {
     badge: preston_north_end,
   },
   'Queen of the South': {
@@ -817,7 +821,7 @@ export const teamData: Team = {
   Wrexham: {
     badge: wrexham,
   },
-  'Wycombe Wanderers': {
+  Wycombe: {
     badge: wycombe_wanderers,
   },
   'Yeovil Town': {
