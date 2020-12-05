@@ -277,7 +277,7 @@ export const teamData: Team = {
   Billericay: {
     badge: billericay_town,
   },
-  'Birmingham City': {
+  Birmingham: {
     badge: birmingham_city,
   },
   'Blackburn Rovers': {
