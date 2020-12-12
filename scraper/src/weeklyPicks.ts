@@ -9,53 +9,53 @@ export interface Bet {
 
 export const WEEKLY_PICKS: Bet[] = [
   {
-    id: 'g_1_xOWonjBh',
-    pick: BetPick.HomeWin,
+    id: 'g_1_OCYe0tW2',
+    pick: BetPick.AwayWin,
     playerName: Players.Dave,
   },
   {
-    id: 'g_1_jiK8hjqn',
-    pick: BetPick.HomeWin,
+    id: 'g_1_fHrRtEoQ',
+    pick: BetPick.AwayWin,
     playerName: Players.Tom,
   },
+  // {
+  //   id: '',
+  //   pick: BetPick.HomeWin,
+  //   playerName: Players.Jamie,
+  // },
+  // {
+  //   id: '',
+  //   pick: BetPick.AwayWin,
+  //   playerName: Players.Kong,
+  // },
   {
-    id: 'g_1_jRnkXxVS',
-    pick: BetPick.HomeWin,
-    playerName: Players.Dean,
-  },
-  {
-    id: 'g_1_fassmWen',
+    id: 'g_1_vJmr4R3s',
     pick: BetPick.AwayWin,
-    playerName: Players.Kong,
-  },
-  {
-    id: 'g_1_dSXesQzo',
-    pick: BetPick.HomeWin,
     playerName: Players.Martin,
   },
   {
-    id: 'g_1_EuUut3BI',
+    id: 'g_1_nLnYeUBK',
     pick: BetPick.HomeWin,
     playerName: Players.Elliot,
   },
   {
-    id: 'g_1_4vCJ1xvL',
+    id: 'g_1_hMVGm6J0',
     pick: BetPick.HomeWin,
     playerName: Players.Kie,
   },
   {
-    id: 'g_1_SOiYtMmS',
+    id: 'g_1_KznCZwt2',
     pick: BetPick.AwayWin,
     playerName: Players.Terry,
   },
+  // {
+  //   id: '',
+  //   pick: BetPick.HomeWin,
+  //   playerName: Players.Bowers,
+  // },
   {
-    id: 'g_1_xOAr5TSi',
+    id: 'g_1_4GBLul9D',
     pick: BetPick.HomeWin,
-    playerName: Players.Ben,
-  },
-  {
-    id: 'g_1_OvZcqleB',
-    pick: BetPick.AwayWin,
     playerName: Players.Macca,
   },
 ];

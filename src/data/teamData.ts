@@ -509,7 +509,7 @@ export const teamData: Team = {
   Guiseley: {
     badge: guiseley,
   },
-  'Hamilton Academical': {
+  Hamilton: {
     badge: hamilton_academical,
   },
   'Hampton & Richmond': {
@@ -641,7 +641,7 @@ export const teamData: Team = {
   Norwich: {
     badge: norwich_city,
   },
-  'Nottingham Forest': {
+  'Nottm Forest': {
     badge: nottingham_forest,
   },
   'Notts County': {
@@ -677,7 +677,7 @@ export const teamData: Team = {
   Preston: {
     badge: preston_north_end,
   },
-  'Queen of the South': {
+  'Queen of South': {
     badge: queen_of_the_south,
   },
   "Queen's Park": {
