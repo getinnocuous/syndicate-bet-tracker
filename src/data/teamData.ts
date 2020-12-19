@@ -48,6 +48,7 @@ import charlton_athletic from '../images/badges/charlton_athletic.png';
 import chelmsford_city from '../images/badges/chelmsford_city.png';
 import chelsea from '../images/badges/chelsea.png';
 import cheltenham_town from '../images/badges/cheltenham_town.png';
+import chesham from '../images/badges/chesham.png';
 import chester from '../images/badges/chester.png';
 import chesterfield from '../images/badges/chesterfield.png';
 import chippenham_town from '../images/badges/chippenham_town.png';
@@ -362,6 +363,9 @@ export const teamData: Team = {
   'Cheltenham Town': {
     badge: cheltenham_town,
   },
+  Chesham: {
+    badge: chesham,
+  },
   Chester: {
     badge: chester,
   },
@@ -434,7 +438,7 @@ export const teamData: Team = {
   'Dundee FC': {
     badge: dundee,
   },
-  'Dundee United': {
+  'Dundee Utd': {
     badge: dundee_united,
   },
   'Dunfermline Athletic': {
@@ -683,7 +687,7 @@ export const teamData: Team = {
   "Queen's Park": {
     badge: queens_park,
   },
-  'Queens Park Rangers': {
+  QPR: {
     badge: queens_park_rangers,
   },
   Raith: {
@@ -755,7 +759,7 @@ export const teamData: Team = {
   'St. Mirren': {
     badge: st_mirren,
   },
-  'Stockport County': {
+  Stockport: {
     badge: stockport_county,
   },
   'Stoke City': {
