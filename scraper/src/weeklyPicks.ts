@@ -10,7 +10,7 @@ export interface Bet {
 export const WEEKLY_PICKS: Bet[] = [
   {
     id: 'g_1_EyfCDYr1',
-    pick: BetPick.AwayWin,
+    pick: BetPick.HomeWin,
     playerName: Players.Ben,
   },
   {
