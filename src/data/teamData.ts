@@ -282,7 +282,7 @@ export const teamData: Team = {
   Birmingham: {
     badge: birmingham_city,
   },
-  'Blackburn Rovers': {
+  Blackburn: {
     badge: blackburn_rovers,
   },
   Blackpool: {
@@ -522,7 +522,7 @@ export const teamData: Team = {
   Harrogate: {
     badge: harrogate_town,
   },
-  'Hartlepool United': {
+  Hartlepool: {
     badge: hartlepool_united,
   },
   'Havant & W': {
@@ -762,7 +762,7 @@ export const teamData: Team = {
   Stockport: {
     badge: stockport_county,
   },
-  'Stoke City': {
+  Stoke: {
     badge: stoke_city,
   },
   Stranraer: {
@@ -774,7 +774,7 @@ export const teamData: Team = {
   'Sutton United': {
     badge: sutton_united,
   },
-  'Swansea City': {
+  Swansea: {
     badge: swansea_city,
   },
   Swindon: {
