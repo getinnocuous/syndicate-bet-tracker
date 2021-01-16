@@ -243,7 +243,7 @@ export const teamData: Team = {
   Alfreton: {
     badge: alfreton_town,
   },
-  'Alloa Athletic': {
+  Alloa: {
     badge: alloa_athletic,
   },
   Altrincham: {
@@ -540,7 +540,7 @@ export const teamData: Team = {
   Hibernian: {
     badge: hibernian,
   },
-  'Huddersfield Town': {
+  Huddersfield: {
     badge: huddersfield_town,
   },
   Hull: {
