@@ -193,6 +193,7 @@ import tottenham_hotspur from '../images/badges/tottenham_hotspur.png';
 import tranmere_rovers from '../images/badges/tranmere_rovers.png';
 import walsall from '../images/badges/walsall.png';
 import watford from '../images/badges/watford.png';
+import warrenpoint_town from '../images/badges/warrenpoint_town.png';
 import wealdstone from '../images/badges/wealdstone.png';
 import welling_united from '../images/badges/welling_united.png';
 import west_bromwich_albion from '../images/badges/west_bromwich_albion.png';
@@ -798,6 +799,9 @@ export const teamData: Team = {
   Watford: {
     badge: watford,
   },
+  Warrenpoint: {
+    badge: warrenpoint_town,
+  },
   Wealdstone: {
     badge: wealdstone,
   },
@@ -807,7 +811,7 @@ export const teamData: Team = {
   'West Brom': {
     badge: west_bromwich_albion,
   },
-  'West Ham United': {
+  'West Ham': {
     badge: west_ham_united,
   },
   Weymouth: {
