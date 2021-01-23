@@ -16,8 +16,8 @@ appRouter(app, fs);
 
 const server = app.listen(3001, () => {
   // Schedule tasks to be run on the server.
-  scrapeScores().then(() => console.log('SCRAPED AT LAUNCH'));
-  cron.schedule('*/30 * * * * *', function () {
-    scrapeScores().then(() => console.log(`SCRAPED AT ${prettyTime()}`));
-  });
+  // scrapeScores().then(() => console.log('SCRAPED AT LAUNCH'));
+  // cron.schedule('*/30 * * * * *', function () {
+  //   scrapeScores().then(() => console.log(`SCRAPED AT ${prettyTime()}`));
+  // });
 });
