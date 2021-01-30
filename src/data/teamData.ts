@@ -418,7 +418,7 @@ export const teamData: Team = {
   Dartford: {
     badge: dartford,
   },
-  'Derby County': {
+  Derby: {
     badge: derby_county,
   },
   Doncaster: {
