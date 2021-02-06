@@ -634,7 +634,7 @@ export const teamData: Team = {
   Motherwell: {
     badge: motherwell,
   },
-  'Newcastle United': {
+  Newcastle: {
     badge: newcastle_united,
   },
   Newport: {
