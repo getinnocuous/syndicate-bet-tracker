@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 appRouter(app, fs);
 
-const scrape = true;
+const scrape = false;
 
 const server = app.listen(3001, () => {
   // Schedule tasks to be run on the server.
